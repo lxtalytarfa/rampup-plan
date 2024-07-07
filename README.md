@@ -75,3 +75,15 @@ With
 ```py
 Base.metadata.create_all(bind=engine)
 ```
+
+## Week 4
+
+Basic Todo App built with react using Redux for state management
+
+#### Setup:
+
+```
+npm start
+```
+
+Open browser at `http://localhost:3000/`
