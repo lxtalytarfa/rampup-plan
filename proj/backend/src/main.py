@@ -141,7 +141,7 @@ async def read_user(current_user: schemas.User = Depends(get_current_active_user
     return current_user
 
 
-@app.get("/items/", response_model=list[schemas.Item])
+@app.get("/tasks/", response_model=list[schemas.Item])
 async def read_items(
     current_user: schemas.User = Depends(get_current_active_user),
     db: Session = Depends(get_db),
@@ -150,7 +150,7 @@ async def read_items(
     return items
 
 
-@app.post("/items/", response_model=schemas.Item)
+@app.post("/tasks/", response_model=schemas.Item)
 async def create_item(
     item: schemas.ItemCreate,
     current_user: schemas.User = Depends(get_current_active_user),
@@ -159,7 +159,7 @@ async def create_item(
     return crud.create_user_item(db, item, current_user.id)
 
 
-@app.delete("/items/{item_id}", response_model=schemas.Item)
+@app.delete("/tasks/{item_id}", response_model=schemas.Item)
 async def delete_item(
     item_id: int,
     current_user: schemas.User = Depends(get_current_active_user),
