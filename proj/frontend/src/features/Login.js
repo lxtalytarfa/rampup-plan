@@ -53,9 +53,9 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  return isLoading ? (
-    <h1>Loading...</h1>
-  ) : (
+  if (isLoading) return <h1>Loading...</h1>;
+
+  return (
     <section className="login">
       <p
         ref={errorRef}
@@ -75,7 +75,7 @@ const Login = () => {
           ref={userRef}
           value={user}
           onChange={handleUserInput}
-          autoComplete="off"
+          autoComplete="on"
           required
         />
 
