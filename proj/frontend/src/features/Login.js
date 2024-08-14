@@ -56,40 +56,57 @@ const Login = () => {
   if (isLoading) return <h1>Loading...</h1>;
 
   return (
-    <section className="login">
-      <p
-        ref={errorRef}
-        className={error ? "error" : "offscreen"}
-        aria-live="assertive"
+    <div className="flex justify-center items-center h-screen bg-indigo-600">
+      <form
+        className="w-96 p-6 shadow-lg bg-white rounded-md"
+        onSubmit={handleSubmit}
       >
-        {error}
-      </p>
+        <h1 className="text-3xl block text-center font-semibold">Login</h1>
+        <div className="mt-3">
+          <label className="block text-base mb-2" htmlFor="username">
+            Username:
+          </label>
+          <input
+            className="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600 rounded-md"
+            type="text"
+            id="username"
+            ref={userRef}
+            value={user}
+            onChange={handleUserInput}
+            autoComplete="on"
+            required
+          />
+        </div>
 
-      <h1>Login</h1>
+        <div className="mt-3">
+          {" "}
+          <label className="block text-base mb-2" htmlFor="password">
+            Password:
+          </label>
+          <input
+            className="border w-full text-base px-2 py-1 mb-2 focus:outline-none focus:ring-0 focus:border-gray-600 rounded-md"
+            type="password"
+            id="password"
+            onChange={handlePasswordInput}
+            value={password}
+            required
+          />
+        </div>
+        <p
+          ref={errorRef}
+          className={error ? "text-center text-red-600 my-2" : ""}
+          aria-live="assertive"
+        >
+          {error}
+        </p>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          ref={userRef}
-          value={user}
-          onChange={handleUserInput}
-          autoComplete="on"
-          required
-        />
-
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          onChange={handlePasswordInput}
-          value={password}
-          required
-        />
-        <button>Sign In</button>
+        <div className="mt-4">
+          <button className="border-2 border-indigo-700 bg-indigo-700 text-white py-1 w-full rounded-md">
+            Sign In
+          </button>
+        </div>
       </form>
-    </section>
+    </div>
   );
 };
 export default Login;
