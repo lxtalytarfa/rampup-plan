@@ -7,14 +7,17 @@ const Main = () => {
   const user = useSelector(selectUser);
   const token = useSelector(selectToken);
   return (
-    <div>
-      <h1>Main</h1>
-      <p>User: {user ? user : "None"}</p>
-      <p>Token: {token ? token : "None"}</p>
-      <Link to="/login">Login</Link>
-      <br />
-      <Link to="/logout">Logout</Link>
-      <Task />
+    <div className="flex justify-center items-center h-screen bg-indigo-600">
+      <div className="w-3/4 p-6 shadow-lg bg-white rounded-md">
+        <h1 className="text-3xl block text-center font-semibold">Welcome!</h1>
+        <div className="mt-3">
+          <p className="block text-base mb-2">User: {user ? user : "None"}</p>
+          <Link className="block text-base mb-2" to="/logout">
+            Logout
+          </Link>
+          <Task />
+        </div>
+      </div>
     </div>
   );
 };
