@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Login from "./features/Login";
 import Logout from "./features/Logout";
+import Register from "./features/Register";
 import Main from "./features/Main";
 import RequireAuth from "./features/requireAuth";
 
@@ -14,6 +15,7 @@ function App() {
         {/* public routes */}
         <Route path="login" element={<Login />} />
         <Route path="logout" element={<Logout />} />
+        <Route path="register" element={<Register />} />
 
         {/* private routes */}
         <Route element={<RequireAuth />}>
